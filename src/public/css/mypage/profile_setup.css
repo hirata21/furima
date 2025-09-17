@@ -1,0 +1,245 @@
+:root {
+    --auth-field-h: 44px;
+    --auth-font: 14px;
+    --auth-radius: 6px;
+    --auth-pad-y: 10px;
+    --auth-pad-x: 12px;
+    --auth-max-w: 600px;
+    --pink: #ff7f7f;
+    --pink-dark: #ff5252;
+    --border: #ccc;
+    --text: #111827;
+}
+
+/* Page / Container */
+.profile-setup {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    background: #fff;
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.profile-setup__container {
+    width: 100%;
+    max-width: var(--auth-max-w);
+    background: #fff;
+    text-align: left;
+}
+
+.profile-setup__header {
+    margin-bottom: 16px;
+}
+
+.profile-setup__title {
+    font-size: 20px;
+    margin: 0 0 24px;
+    text-align: center;
+}
+
+/* Error summary */
+.form-errors {
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #991b1b;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+}
+
+.form-errors ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+/* Form sections / rows */
+.form-section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.form-row {
+    margin-top: 14px;
+}
+
+.form-row--image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Profile image (circle) */
+.profile-image {
+    width: 120px;
+    aspect-ratio: 1 / 1;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ccc;
+    /* 画像未設定時の下地 */
+    display: grid;
+    place-items: center;
+}
+
+.profile-image__preview {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
+}
+
+/* 画像未設定時：空srcでもサイズ崩れしないよう非表示に */
+.profile-image__preview--default {
+    display: none;
+}
+
+/* 画像操作ボタンのまとまり */
+.profile-image__controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Labels / Inputs */
+.profile-setup__container form label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-size: var(--auth-font);
+    font-weight: 600;
+}
+
+.profile-setup__container form input[type="text"],
+.profile-setup__container form input[type="email"],
+.profile-setup__container form input[type="password"],
+.profile-setup__container form input[type="tel"],
+.profile-setup__container form input[type="url"],
+.profile-setup__container form input[type="number"],
+.profile-setup__container form select,
+.profile-setup__container form textarea {
+    width: 100%;
+    padding: var(--auth-pad-y) var(--auth-pad-x);
+    border: 1px solid var(--border);
+    border-radius: var(--auth-radius);
+    font-size: var(--auth-font);
+    box-sizing: border-box;
+    background: #fff;
+    color: #000;
+    line-height: 1.2;
+}
+
+.profile-setup__container form input[type="text"],
+.profile-setup__container form input[type="email"],
+.profile-setup__container form input[type="password"],
+.profile-setup__container form input[type="tel"],
+.profile-setup__container form input[type="url"],
+.profile-setup__container form input[type="number"],
+.profile-setup__container form select {
+    height: var(--auth-field-h);
+}
+
+.profile-setup__container form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.profile-setup__container form ::placeholder {
+    color: #9ca3af;
+}
+
+/* number spin off */
+.profile-setup__container form input[type="number"]::-webkit-outer-spin-button,
+.profile-setup__container form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.profile-setup__container form input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* focus ring */
+.profile-setup__container form input:focus,
+.profile-setup__container form select:focus,
+.profile-setup__container form textarea:focus {
+    outline: 3px solid rgba(37, 99, 235, .25);
+    outline-offset: 2px;
+    border-color: #9bb6f3;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    font-size: var(--auth-font);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: filter .2s ease, transform .02s ease, background .2s ease, color .2s ease;
+    text-decoration: none;
+    user-select: none;
+}
+
+.button--primary {
+    width: 100%;
+    height: var(--auth-field-h);
+    margin-top: 22px;
+    padding: 0 14px;
+    background: var(--pink);
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.button--primary:hover {
+    filter: brightness(.96);
+    background: var(--pink-dark);
+}
+
+.button--primary:active {
+    transform: translateY(1px);
+}
+
+.button--secondary {
+    padding: 10px 16px;
+    background: #fff;
+    border: 1px solid var(--pink);
+    color: var(--pink);
+    border-radius: 20px;
+}
+
+.button--secondary:hover {
+    background: var(--pink);
+    color: #fff;
+}
+
+.form-actions {
+    margin-top: 8px;
+}
+
+/* Errors */
+.error {
+    color: #e11d48;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* A11y */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

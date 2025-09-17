@@ -1,0 +1,206 @@
+/* ========== MyPage Base ========== */
+.mypage {
+    max-width: 1200px;
+    /* 画像を大きく見せるため 1200px に統一 */
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* ========== Header / Title ========== */
+.mypage__header {
+    margin-bottom: 16px;
+}
+
+.mypage__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ========== Profile ========== */
+.profile {
+    display: grid;
+    grid-template-columns: 96px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.profile__image {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.profile__image--default {
+    background-color: #ccc;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: block;
+}
+
+.profile__name {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.profile__edit-button {
+    margin-left: auto;
+    padding: 8px 16px;
+    background: #f66;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* ========== Tabs ========== */
+.tabs {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabs__list {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tabs__item {
+    margin: 0;
+    padding: 0;
+}
+
+.tabs__link {
+    display: inline-block;
+    padding: 10px 12px 8px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid transparent;
+}
+
+.tabs__link.is-active {
+    border-bottom-color: #f66;
+    font-weight: 700;
+}
+
+/* ========== Item List (Grid) ========== */
+/* デフォルト：PC 3列 → 画像もそこそこ大きく */
+.item-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .item-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .item-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* もっと大きく：PC 2列（正方形維持） */
+.item-list--xl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+@media (max-width: 900px) {
+    .item-list--xl {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 最大：1列ぶち抜き（正方形維持） */
+.item-list--xxl {
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+/* 空状態 */
+.item-list__empty {
+    color: #666;
+    margin-top: 8px;
+}
+
+/* ========== Item Card ========== */
+.item-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+}
+
+.item-card__figure {
+    margin: 0;
+}
+
+/* 正方形サムネ（全サイズで統一） */
+.item-card__thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.item-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* SOLD badge */
+.item-card__badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 10px;
+    background: rgba(255, 0, 0, 0.85);
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 6px;
+    letter-spacing: .08em;
+}
+
+.item-card__badge--sold {}
+
+/* Name */
+.item-card__name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 8px 0 0;
+}
+
+/* ========== A11y Utility ========== */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

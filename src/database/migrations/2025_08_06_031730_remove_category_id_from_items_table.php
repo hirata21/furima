@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class RemoveCategoryIdFromItemsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('items', function (Blueprint $table) {
+            // 外部キー制約がある場合は先に削除
+            if (Schema::hasColumn('items', 'category_id')) {
+                $table->dropForeign(['category_id']);
+                $table->dropColumn('category_id');
+            }
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('items', function (Blueprint $table) {
+            $table->foreignId('category_id')
+                ->constrained()
+                ->onDelete('cascade');
+        });
+    }
+}

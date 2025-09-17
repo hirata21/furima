@@ -1,0 +1,328 @@
+/* ===============================
+   商品出品ページ（create.css） 完全版
+   ※ 販売価格：左に常時「¥」を表示し、フォーカス時/値あり時は自動で非表示
+   =============================== */
+
+/* ページ全体 */
+.item-create-page {
+    width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+/* 見出し */
+.item-create-page h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* ラベル */
+.item-create-page label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* 入力欄・テキストエリア 共通 */
+.item-create-page input[type="text"],
+.item-create-page input[type="file"],
+.item-create-page textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: #fff;
+    color: #000;
+}
+
+/* 商品説明テキストエリア */
+.item-create-page textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* ===============================
+   画像プレビュー／選択
+   =============================== */
+.image-field {
+    margin-top: 6px;
+}
+
+.image-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+    object-fit: contain;
+}
+
+.image-box.has-image img {
+    display: block;
+}
+
+.image-box.dragover {
+    outline: 2px dashed #3b82f6;
+    outline-offset: 4px;
+    background: #f8fbff;
+}
+
+/* 画像選択ボタン（ピンク系） */
+.btn {
+    background: #fff;
+    color: #ff6f61;
+    padding: 8px 16px;
+    border: 1px solid #ff6f61;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.btn:hover {
+    background: #ff6f61;
+    color: #fff;
+}
+
+/* ===============================
+   カテゴリ選択UI（ピンクトーン）
+   =============================== */
+.item-create-page .category-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.item-create-page .category-checkboxes input[type="checkbox"] {
+    display: none;
+}
+
+.item-create-page .category-checkboxes label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid #ff6f61;
+    color: #ff6f61;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.item-create-page .category-checkboxes input[type="checkbox"]:checked+label {
+    background: #ff6f61;
+    color: #fff;
+    border-color: #ff6f61;
+}
+
+.item-create-page .category-checkboxes label:hover {
+    background: #ffe3e0;
+}
+
+/* ===============================
+   販売価格（左に「¥」を表示）
+   =============================== */
+.price-input {
+    position: relative;
+    width: 100%;
+}
+
+.price-input .yen-mark {
+    position: absolute;
+    z-index: 2;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.price-input input {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    padding: 10px 12px 10px 48px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+    color: #000;
+    font-variant-numeric: tabular-nums;
+}
+
+.price-input:focus-within .yen-mark {
+    opacity: 0;
+}
+
+.price-input:has(input:not(:placeholder-shown)) .yen-mark {
+    opacity: 0;
+}
+
+/* ===============================
+   カスタムセレクト（商品の状態）
+   ─ 閉じ：白、開き：黒
+   =============================== */
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select .cs-native {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.custom-select .cs-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+    text-align: left;
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 12px;
+    height: 44px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.custom-select .cs-check {
+    display: none !important;
+}
+
+.custom-select.is-empty .cs-value {
+    color: #000 !important;
+}
+
+.custom-select .cs-value {
+    flex: 1;
+}
+
+.custom-select .cs-arrow {
+    transform: translateY(1px);
+    color: #000;
+}
+
+.custom-select .cs-trigger:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, .35);
+    outline-offset: 2px;
+}
+
+.custom-select .cs-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 4px);
+    background: #000;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    max-height: 260px;
+    overflow: auto;
+    z-index: 30;
+    display: none;
+    padding: 6px 0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
+}
+
+.custom-select.is-open .cs-list {
+    display: block;
+}
+
+.custom-select .cs-option {
+    position: relative;
+    list-style: none;
+    text-align: left;
+    padding: 11px 12px 11px 34px;
+    cursor: pointer;
+    outline: none;
+    font-size: 14px;
+}
+
+.custom-select .cs-option:hover,
+.custom-select .cs-option:focus {
+    background: #111;
+}
+
+.custom-select .cs-option[aria-selected="true"] {
+    background: #2563eb;
+    color: #fff;
+}
+
+.custom-select .cs-option[aria-selected="true"]::before {
+    content: "✓";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ===============================
+   送信ボタン
+   =============================== */
+.item-create-page button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 12px;
+    background: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+.item-create-page button[type="submit"]:hover {
+    background: #e65b50;
+}
+
+/* ===============================
+   エラー表示
+   =============================== */
+.item-create-page .error {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* ===============================
+   小見出し（商品の詳細 / 商品名と説明）
+   =============================== */
+.item-create-page .form-section-title {
+    font-weight: 700;
+    color: #6b7280;
+    margin: 24px 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d1d5db;
+}

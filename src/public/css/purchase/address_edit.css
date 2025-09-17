@@ -1,0 +1,188 @@
+/* =========================
+   住所変更ページ /purchase/address_edit
+   ========================= */
+
+/* Page */
+.address-edit {
+    display: flex;
+    justify-content: center;
+    padding: 40px 16px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #111827;
+    background: #fff;
+}
+
+/* Container */
+.address-edit__container {
+    width: 100%;
+    max-width: 700px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+    padding: 40px;
+}
+
+/* Header / Title */
+.address-edit__header {
+    margin-bottom: 24px;
+}
+
+.address-edit__title {
+    font-size: 24px;
+    margin: 0 0 6px;
+    text-align: center;
+    /* タイトルは中央 */
+}
+
+/* Error summary (page top) */
+.form-errors {
+    border: 1px solid #fecaca;
+    background: #fef2f2;
+    color: #991b1b;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+}
+
+.form-errors ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+/* Form layout */
+.address-edit__container form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    /* 入力ブロック間 */
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.address-edit__container label {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+/* Inputs */
+.address-edit__container input[type="text"] {
+    width: 100%;
+    height: 44px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    box-sizing: border-box;
+    background: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.address-edit__container input[type="text"]::placeholder {
+    color: #9ca3af;
+}
+
+/* Focus */
+.address-edit__container input[type="text"]:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Error text (per-field) */
+.error {
+    color: #d93025;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Invalid input helper (optional) */
+.is-invalid {
+    border-color: #d93025 !important;
+    outline: none;
+}
+
+/* Actions */
+.form-actions {
+    margin-top: 6px;
+}
+
+.update-button {
+    width: 100%;
+    height: 44px;
+    background: #f66;
+    color: #fff;
+    padding: 0 16px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color .2s ease, filter .2s ease;
+}
+
+.update-button:hover {
+    background: #d44;
+}
+
+.update-button:active {
+    filter: brightness(.96);
+}
+
+/* ---------- Backward-compatible aliases ---------- */
+/* 既存: .address-edit-container を新BEMへマッピング */
+.address-edit-container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #111827;
+}
+
+/* 旧レイアウトにも対応：h1/inputs など */
+.address-edit-container h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.address-edit-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.address-edit-container label {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 4px;
+}
+
+.address-edit-container input[type="text"] {
+    width: 100%;
+    height: 44px;
+    padding: 10px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.address-edit-container input[type="text"]:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
