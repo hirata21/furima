@@ -1,4 +1,4 @@
-# furima
+# furima（coachtechフリマ）
 
 ## 環境構築
 
@@ -44,6 +44,10 @@ php artisan migrate
 
 php artisan db:seed
 
+8.ストレージリンクの作成
+
+php artisan storage:link
+
 ## 使用技術（実行環境）
 
 ・Laravel 8.75
@@ -65,3 +69,5 @@ php artisan db:seed
 ・開発環境: http://localhost/
 
 ・phpMyAdmin: http://localhost:8080
+
+・Mailhog: http://localhost:8025
