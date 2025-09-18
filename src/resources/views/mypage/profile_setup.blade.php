@@ -72,7 +72,7 @@
                         type="text"
                         id="postcode"
                         name="postcode"
-                        value="{{ old('postcode', $address->postcode) }}"
+                        value="{{ old('postcode', optional($user->address)->postcode) }}"
                         placeholder="123-4567"
                         inputmode="numeric"
                         pattern="^\d{3}-\d{4}$"
@@ -93,7 +93,7 @@
                         type="text"
                         id="address"
                         name="address"
-                        value="{{ old('address', $address->address) }}"
+                        value="{{ old('address', optional($user->address)->address) }}"
                         required
                         aria-invalid="@error('address') true @else false @enderror"
                         @error('address') aria-describedby="error-address" @enderror
@@ -110,7 +110,7 @@
                         type="text"
                         id="building"
                         name="building"
-                        value="{{ old('building', $address->building) }}"
+                        value="{{ old('building', optional($user->address)->building) }}"
                         autocomplete="address-line2">
                     @error('building')
                     <p class="error" id="error-building">{{ $message }}</p>

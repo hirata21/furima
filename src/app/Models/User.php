@@ -15,9 +15,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'postcode',
-        'address',
-        'building',
         'profile_image'
     ];
 
@@ -33,7 +30,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function address()
     {
-        return $this->hasOne(\App\Models\UserAddress::class);
+        return $this->hasOne(UserAddress::class)->withDefault([
+            'postcode'   => '',
+            'prefecture' => '',
+            'address'    => '',
+        ]);
     }
 
     public function items()

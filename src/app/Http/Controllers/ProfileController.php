@@ -16,7 +16,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        $user = auth()->user();
+        $user = auth()->user()->load('address');
         $address = $user->address;
 
         return view('mypage.profile_setup', compact('user', 'address'));
@@ -51,7 +51,6 @@ class ProfileController extends Controller
                 'postcode' => $request->input('postcode',  $request->input('郵便番号')),
                 'address'  => $request->input('address',   $request->input('住所')),
                 'building' => $request->input('building',  $request->input('建物名')),
-                'phone'    => $request->input('phone',     $request->input('電話番号')),
             ];
 
             // 必須の postcode/address が null のままにならないように、必要なら ProfileRequest で required に
