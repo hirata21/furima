@@ -48,6 +48,11 @@ php artisan db:seed
 
 php artisan storage:link
 
+9.権限（必要なとき）
+
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R ug+rwx storage bootstrap/cache
+
 ## 使用技術（実行環境）
 
 ・Laravel 8.75

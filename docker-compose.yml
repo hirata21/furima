@@ -30,9 +30,6 @@ services:
             - ./docker/mysql/data:/var/lib/mysql
             - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
 
-    volumes:
-        storage_data: {}
-
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         environment:
@@ -51,3 +48,6 @@ services:
         ports:
         - "1025:1025"
         - "8025:8025"
+
+volumes:
+    storage_data: {}
